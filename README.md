@@ -4,9 +4,11 @@
 
 # Requirement
 
+- Chrome
 - Python 3.9
-- selenium
+- Selenium
 - ChromeDriver
+- webdriver_manager
 
 # Installation
 
