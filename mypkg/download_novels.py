@@ -2,6 +2,7 @@ import re
 import time
 import os
 import glob
+import chromedriver_binary
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
@@ -9,6 +10,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from bs4 import BeautifulSoup
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 # このファイルがあるディレクトリ
 dir_base = os.path.dirname(os.path.abspath(__file__))
@@ -21,7 +24,8 @@ options.add_argument('--headless')
 options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--disable-gpu')
 options.add_argument('--no-sandbox')
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(options=options, service=Service(
+    ChromeDriverManager().install()))
 # 要素が見つかるまでの最大待機時間の設定
 driver.implicitly_wait(10)
 wait = WebDriverWait(driver, 20)
