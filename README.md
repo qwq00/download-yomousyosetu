@@ -9,6 +9,7 @@
 - Selenium
 - ChromeDriver
 - webdriver_manager
+- BeautifulSoup
 
 # Installation
 
